@@ -1,0 +1,77 @@
+@import "ButtonColors";
+
+:root {
+  --white-color: #fff;
+}
+
+@mixin text($color) {
+  background-color: $color;
+  border: 1px solid darken($color, 10%);
+}
+
+@mixin icon($color) {
+  border-right-width: 1px;
+  border-right-color: darken($color, 10%);
+  background-color: lighten($color, 4%);
+}
+
+.wrapper {
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.buttonWrapper {
+  height: 32px;
+  margin-bottom: 12px;
+  margin-right: 20px;
+}
+
+.color {
+  width: 6px;
+  height: 6px;
+}
+
+.button {
+  padding: 0px 18px 0px 0px;
+  width: 136px;
+  height: 32px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  flex: 1;
+}
+
+.innerWrapper {
+  flex: 1;
+  flex-direction: row;
+}
+
+.buttonText {
+  color: var(--white-color);
+  font-size: 16px;
+  line-height: 28px;
+  padding-left: 10px;
+  height: 32px;
+}
+
+.icon {
+  height: 30px;
+  width: 32px;
+  padding: 7px 8px;
+  margin-right: 5px;
+}
+
+.iconText {
+  font-size: 16px;
+  color: #fff;
+}
+
+@each $color in $colors-map {
+  .button#{nth($color, 1)} {
+    @extend .button;
+    @include text(nth($color, 2));
+  }
+  .icon#{nth($color, 1)} {
+    @extend .icon;
+    @include icon(nth($color, 2));
+  }
+}

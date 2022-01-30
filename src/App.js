@@ -4,13 +4,15 @@ import styles from './App.sass';
 import {Buttons} from './Buttons';
 import {Link} from './Link';
 import {ProfileCard} from './ProfileCard';
+import Payment from './screens/Payment';
 
 export default class App extends Component {
   render() {
     return (
-      <SafeAreaView style={{flex: 1}}>
-        <ScrollView className={styles.wrapper}>
-          <Link
+      <SafeAreaView style={styles.container}>
+        {/* <ScrollView className={styles.wrapper}> */}
+          <Payment />
+          {/* <Link
             description="Profile card from"
             url="https://themes.getbootstrap.com/products/application"
           />
@@ -19,8 +21,8 @@ export default class App extends Component {
             description="Buttons from"
             url="https://codepen.io/coolzilj/pen/ImlEG"
           />
-          <Buttons />
-        </ScrollView>
+          <Buttons /> */}
+        {/* </ScrollView> */}
       </SafeAreaView>
     );
   }
